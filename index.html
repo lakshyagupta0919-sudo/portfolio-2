@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Lakshya | Career Launchpad & Tech Interview Preparation OS</title>
+  <meta name="description" content="All-in-one software engineering job portal and comprehensive interview preparation suite featuring curated tech jobs, DSA topic-wise sheets, company hiring patterns, aptitude formulas, and HR guides.">
+  <meta name="keywords" content="job portal, DSA preparation sheet, Striver SDE sheet, company exam pattern, TCS NQT syllabus, Google interview rounds, aptitude practice, core CS subjects, software engineering jobs">
+  <meta name="author" content="Lakshya Tech Systems">
+  <meta name="theme-color" content="#070a12">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lakshya - Career Launchpad & Tech Interview Preparation OS">
+  <meta property="og:description" content="Explore top tech jobs, master DSA with curated topic-wise sheets, crack company hiring patterns, and practice aptitude & HR questions.">
+  <meta property="og:image" content="assets/images/hero-banner.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/jobs.css">
+  <link rel="stylesheet" href="assets/css/prep.css">
+  <link rel="stylesheet" href="assets/css/companies.css">
+  <link rel="stylesheet" href="assets/css/dsa-sheet.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="#jobs" class="brand-logo" id="brandLogoBtn">
+        <div class="logo-icon-wrap">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">
+            <span>Lakshya</span>
+            <span class="brand-badge">OS</span>
+          </div>
+          <span class="brand-tagline">Career & Interview Launchpad</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Tabs -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <button class="nav-link active" data-view="jobs" id="navJobsBtn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>Job Portal</span>
+        </button>
+
+        <button class="nav-link" data-view="prep" id="navPrepBtn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span>Prep Hub [DSA/Apt/Tech/HR]</span>
+        </button>
+
+        <button class="nav-link" data-view="companies" id="navCompaniesBtn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>Companies Hiring Process</span>
+        </button>
+
+        <button class="nav-link" data-view="dsa" id="navDsaBtn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <span>Dedicated DSA Sheet</span>
+        </button>
+      </nav>
+
+      <!-- Right Actions: Quick Search, Streak Pill, Mobile Toggle -->
+      <div class="header-actions">
+        <button class="quick-search-btn" id="quickSearchTrigger" title="Quick Search (Ctrl + K)">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span>Quick Find</span>
+          <span class="kbd-shortcut">Ctrl K</span>
+        </button>
+
+        <div class="streak-pill" id="userStreakBadge" title="Daily Preparation Streak">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.87 2.19c-.39-.39-1.02-.39-1.41 0-.96.96-2.07 2.21-2.91 3.55C6.72 8.65 6 11.23 6 13.5 6 17.09 8.91 20 12.5 20s6.5-2.91 6.5-6.5c0-3.32-1.74-6.42-3.88-8.81-.66-.73-1.44-1.63-2.25-2.5z"/>
+          </svg>
+          <span id="userStreakCount">1 Day Streak</span>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="dot"></span>
+            <span>2026 Batch Campus & Off-Campus Hiring Live</span>
+          </div>
+
+          <h1 class="hero-title">
+            Land Your Dream <span class="gradient-text">Tech Career</span> With Precision.
+          </h1>
+
+          <p class="hero-desc">
+            Your single destination for verified tech jobs & internships, topic-wise DSA sheets with multi-language code solutions, company recruitment syllabus, and core technical notes.
+          </p>
+
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <div class="stat-icon cyan">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="stat-info">
+                <h4 id="statTotalJobs">12+</h4>
+                <span>Active Tech Openings</span>
+              </div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-icon emerald">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              </div>
+              <div class="stat-info">
+                <h4 id="statTotalDsa">60+</h4>
+                <span>Curated DSA Problems</span>
+              </div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-icon purple">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <div class="stat-info">
+                <h4 id="statTotalCompanies">12+</h4>
+                <span>Company Hiring Guides</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="assets/images/hero-banner.jpg" alt="Lakshya Career & Interview OS Dashboard" class="hero-banner-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main View Container -->
+  <main class="container main-view-container">
+
+    <!-- =====================================================================
+         VIEW 1: JOB PORTAL
+         ===================================================================== -->
+    <section id="view-jobs" class="view-section active">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">Explore Opportunities</span>
+          <h2 class="section-title">
+            Software Engineering & Tech Jobs
+          </h2>
+          <p class="section-subtitle">Verified high-growth roles, freshers recruitment, internships, and remote openings.</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span id="jobCountBadge" class="badge-pill" style="background: var(--bg-tertiary); color: var(--accent-cyan); border: 1px solid var(--border-subtle); padding: 0.4rem 0.85rem;">
+            Loading Jobs...
+          </span>
+        </div>
+      </div>
+
+      <!-- Search & Filters Container -->
+      <div class="jobs-search-box">
+        <div class="search-inputs-grid">
+          <div class="search-input-field">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" id="jobSearchKeyword" class="form-control" placeholder="Search by role title, company, or skills (e.g. Google, React, Java)...">
+          </div>
+
+          <div class="search-input-field">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <select id="jobExpFilter" class="form-control">
+              <option value="all">Experience: All Levels</option>
+              <option value="fresher">Freshers / 0-1 Yr</option>
+              <option value="experienced">Experienced (1-3+ Yrs)</option>
+            </select>
+          </div>
+
+          <div class="search-input-field">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+            <select id="jobModeFilter" class="form-control">
+              <option value="all">Work Mode: All</option>
+              <option value="remote">Remote Only</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="onsite">On-site</option>
+            </select>
+          </div>
+
+          <button class="btn btn-secondary" onclick="JobsController.resetFilters()">
+            Reset
+          </button>
+        </div>
+
+        <div class="filter-pills-row">
+          <div class="filter-tags-group">
+            <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 0.35rem;">ROLES:</span>
+            <button class="filter-tag-btn active" data-category="all">All Roles</button>
+            <button class="filter-tag-btn" data-category="SDE">SDE</button>
+            <button class="filter-tag-btn" data-category="Frontend">Frontend</button>
+            <button class="filter-tag-btn" data-category="Backend">Backend</button>
+            <button class="filter-tag-btn" data-category="Full Stack">Full Stack</button>
+            <button class="filter-tag-btn" data-category="AI/ML">AI / ML</button>
+            <button class="filter-tag-btn" data-category="DevOps">DevOps & Cloud</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub Navigation: Browse vs Saved vs Application Tracker -->
+      <div class="jobs-view-nav">
+        <button class="jobs-tab-btn active" data-tab="browse" id="tabBrowseJobs">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          <span>All Openings</span>
+        </button>
+
+        <button class="jobs-tab-btn" data-tab="saved" id="tabSavedJobs">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+          <span>Saved Jobs</span>
+        </button>
+
+        <button class="jobs-tab-btn" data-tab="applications" id="tabApplications">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          <span>My Applications Tracker (Kanban)</span>
+        </button>
+      </div>
+
+      <!-- Jobs Grid -->
+      <div class="jobs-grid" id="jobsGrid">
+        <!-- Rendered by jobs.js -->
+      </div>
+
+      <!-- Application Tracker Kanban Board -->
+      <div class="pipeline-board" id="jobsPipelineBoard" style="display: none;">
+        <!-- Rendered by jobs.js -->
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         VIEW 2: PREPARATION HUB [DSA, APTITUDE, CORE TECH, HR]
+         ===================================================================== -->
+    <section id="view-prep" class="view-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">Preparation Hub</span>
+          <h2 class="section-title">
+            All-In-One Interview Preparation
+          </h2>
+          <p class="section-subtitle">
+            Cheat sheets, mathematical aptitude formulas, core CS technical pillars, and HR STAR framework.
+          </p>
+        </div>
+      </div>
+
+      <!-- Prep Navigation Pills -->
+      <div class="prep-tabs-nav">
+        <button class="prep-tab-pill active" data-tab="dsa" id="prepTabDsa">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <span>DSA Essentials & Patterns</span>
+        </button>
+
+        <button class="prep-tab-pill" data-tab="aptitude" id="prepTabAptitude">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          <span>Quantitative & Logical Aptitude (Formulas + Quiz)</span>
+        </button>
+
+        <button class="prep-tab-pill" data-tab="technical" id="prepTabTechnical">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>Core CS Subjects (OS, DBMS, CN, OOP)</span>
+        </button>
+
+        <button class="prep-tab-pill" data-tab="hr" id="prepTabHr">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span>HR & Behavioral Round (STAR Framework)</span>
+        </button>
+      </div>
+
+      <!-- Prep Content Container -->
+      <div id="prepContentArea">
+        <!-- Rendered by prep.js -->
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         VIEW 3: COMPANIES HIRING PROCESS
+         ===================================================================== -->
+    <section id="view-companies" class="view-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">Hiring Intelligence</span>
+          <h2 class="section-title">
+            Company Recruitment Processes
+          </h2>
+          <p class="section-subtitle">
+            Eligibility cutoffs, exam patterns, online assessment syllabus, and past interview questions for top tech leaders.
+          </p>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="companies-header-bar">
+        <div class="search-input-field companies-search-input">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="companySearchInput" class="form-control" placeholder="Search company by name (Google, TCS, Amazon)...">
+        </div>
+
+        <div class="company-type-filters">
+          <button class="company-type-btn active" data-category="all">All Companies</button>
+          <button class="company-type-btn" data-category="product">Product Giants (FAANG)</button>
+          <button class="company-type-btn" data-category="services">IT Services & Consulting</button>
+          <button class="company-type-btn" data-category="fintech">FinTech & Investment Banks</button>
+        </div>
+      </div>
+
+      <!-- Companies Grid -->
+      <div class="companies-grid" id="companiesGrid">
+        <!-- Rendered by companies.js -->
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         VIEW 4: DEDICATED DSA PREPARATION SHEET
+         ===================================================================== -->
+    <section id="view-dsa" class="view-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">Curated Roadmap</span>
+          <h2 class="section-title">
+            Dedicated Topic-Wise DSA Sheet
+          </h2>
+          <p class="section-subtitle">
+            Carefully curated LeetCode & GFG problems with multi-language code solutions (C++, Java, Python, JS), intuition, and personal notes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Overall Analytics Card -->
+      <div class="dsa-stats-card" id="dsaStatsContainer">
+        <!-- Rendered by dsa.js -->
+      </div>
+
+      <!-- Filters Toolbar -->
+      <div class="dsa-toolbar">
+        <div class="dsa-search-wrap">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="dsaSearchInput" class="form-control" placeholder="Search problem (e.g. Two Sum, Kadane, Cycle, Tree)...">
+        </div>
+
+        <div class="dsa-filter-btn-group">
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 0.25rem;">DIFFICULTY:</span>
+          <button class="dsa-filter-pill dsa-diff-pill active" data-diff="all">All</button>
+          <button class="dsa-filter-pill dsa-diff-pill" data-diff="Easy">Easy</button>
+          <button class="dsa-filter-pill dsa-diff-pill" data-diff="Medium">Medium</button>
+          <button class="dsa-filter-pill dsa-diff-pill" data-diff="Hard">Hard</button>
+        </div>
+
+        <div class="dsa-filter-btn-group">
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 0.25rem;">STATUS:</span>
+          <button class="dsa-filter-pill dsa-status-pill active" data-status="all">All</button>
+          <button class="dsa-filter-pill dsa-status-pill" data-status="solved">Solved</button>
+          <button class="dsa-filter-pill dsa-status-pill" data-status="unsolved">Unsolved</button>
+          <button class="dsa-filter-pill dsa-status-pill" data-status="bookmarked">Starred ⭐</button>
+        </div>
+      </div>
+
+      <!-- Topic-Wise Accordion List -->
+      <div class="dsa-topic-accordion-list" id="dsaTopicList">
+        <!-- Rendered by dsa.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Modal Box -->
+  <div class="modal-overlay" id="globalModal" role="dialog" aria-modal="true">
+    <div class="modal-box" id="globalModalBox">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Modal Details</h3>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic content injected -->
+      </div>
+      <div class="modal-footer" id="modalFooter">
+        <button class="btn btn-secondary" onclick="App.closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Palette / Quick Jump Modal -->
+  <div class="modal-overlay" id="cmdPaletteOverlay" role="dialog" aria-modal="true">
+    <div class="cmd-palette">
+      <div class="cmd-search-input-wrap">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="cmdPaletteInput" class="cmd-search-input" placeholder="Type to search jobs, companies, DSA problems, or topics..." autocomplete="off">
+        <span class="kbd-shortcut">ESC</span>
+      </div>
+      <div class="cmd-results" id="cmdPaletteResults">
+        <!-- Dynamic items injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-title" style="font-size: 1.25rem;">
+            <span>Lakshya</span>
+            <span class="brand-badge">OS</span>
+          </div>
+          <p>
+            Your comprehensive career launchpad & interview preparation portal designed to take candidates from learning fundamentals to cracking top product and consulting firms.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Core Modules</h5>
+          <ul>
+            <li><a href="#jobs" onclick="App.switchView('jobs')">Job Portal & Openings</a></li>
+            <li><a href="#dsa" onclick="App.switchView('dsa')">Dedicated DSA Sheet</a></li>
+            <li><a href="#companies" onclick="App.switchView('companies')">Company Hiring Process</a></li>
+            <li><a href="#prep" onclick="App.switchView('prep')">Aptitude & Technical Notes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Top Companies</h5>
+          <ul>
+            <li><a href="#companies" onclick="App.switchView('companies'); CompaniesController.openCompanyDetails('comp-google');">Google Interview Guide</a></li>
+            <li><a href="#companies" onclick="App.switchView('companies'); CompaniesController.openCompanyDetails('comp-amazon');">Amazon LP & OA Guide</a></li>
+            <li><a href="#companies" onclick="App.switchView('companies'); CompaniesController.openCompanyDetails('comp-tcs');">TCS NQT Syllabus</a></li>
+            <li><a href="#companies" onclick="App.switchView('companies'); CompaniesController.openCompanyDetails('comp-infosys');">Infosys HackWithInfy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Interview Prep</h5>
+          <ul>
+            <li><a href="#prep" onclick="App.switchView('prep'); PrepController.currentTab='aptitude'; PrepController.render();">Aptitude Practice Quiz</a></li>
+            <li><a href="#prep" onclick="App.switchView('prep'); PrepController.currentTab='technical'; PrepController.render();">OS / DBMS / CN / OOPs</a></li>
+            <li><a href="#prep" onclick="App.switchView('prep'); PrepController.currentTab='hr'; PrepController.render();">STAR Method HR Questions</a></li>
+            <li><a href="#dsa" onclick="App.switchView('dsa'); DsaController.pickRandomProblem();">Random Problem Picker</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Lakshya Platform. Built for ambitious software engineers.</div>
+        <div>All rights reserved. Free & Open Preparation Ecosystem.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data/jobs-data.js"></script>
+  <script src="assets/js/data/companies-data.js"></script>
+  <script src="assets/js/data/prep-data.js"></script>
+  <script src="assets/js/data/dsa-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/jobs.js"></script>
+  <script src="assets/js/prep.js"></script>
+  <script src="assets/js/companies.js"></script>
+  <script src="assets/js/dsa.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
